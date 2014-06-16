@@ -104,9 +104,6 @@ public:
     {
         if(!bStopping)
         {
-            App->EnableSceneSwitching(FALSE);
-            EnableWindow (hwndMain, FALSE);
-
             bStreamEnding = true;
             HWND hwndProgressDialog = CreateDialogParam(hinstMain, MAKEINTRESOURCE(IDD_ENDINGDELAY), hwndMain, (DLGPROC)EndDelayProc, (LPARAM)this);
             ProcessEvents();
@@ -145,8 +142,6 @@ public:
                 Sleep(10);
             }
 
-            EnableWindow (hwndMain, TRUE);
-            App->EnableSceneSwitching(TRUE);
             DestroyWindow(hwndProgressDialog);
         }
 
